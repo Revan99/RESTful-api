@@ -12,7 +12,7 @@ mongoose.connect('mongodb+srv://Revan99:'+ process.env.MONGO_ATLAS_PW +'@cluster
 app.use(morgan("dev"))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-
+app.use('/upload',express.static('upload'))
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*')
     //res.header('Access-Control-Allow-Header', 'Origin, X-Request-with, Content-Type, accept, Authorization')
