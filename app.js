@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const productRoutes = require('./api/routes/product')
 const ordersRoutes = require('./api/routes/orders')
 const mongoose = require('mongoose')
-
+const userRoutes = require('./api/routes/user')
 mongoose.Promise = global.Promise
 mongoose.connect('mongodb+srv://Revan99:'+ process.env.MONGO_ATLAS_PW +'@cluster0.78v5t.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {useMongoClient: true})
 //login resquest
@@ -26,7 +26,7 @@ app.use((req, res, next) => {
 //Routes which should handel reqests
 app.use('/products', productRoutes)
 app.use('/orders', ordersRoutes)
-
+app.use('/user', userRoutes)
 app.use((req, res, next) => {
     const error = new Error('Not found')
     error.status = 404;
